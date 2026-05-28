@@ -1,0 +1,132 @@
+# generate_test_data.py
+import pandas as pd
+import numpy as np
+from faker import Faker
+from datetime import datetime, timedelta
+import random
+import os
+from openpyxl import Workbook
+import json
+import csv
+
+# Initialize Faker with multiple locales for Pan-Asian support
+fake = Faker()
+fake.add_provider("zh_CN")  # Chinese
+fake.add_provider("ja_JP")  # Japanese
+fake.add_provider("ko_KR")  # Korean
+fake.add_provider("th_TH")  # Thai
+fake.add_provider("vi_VN")  # Vietnamese
+fake.add_provider("ms_MY")  # Malay
+fake.add_provider("id_ID")  # Indonesian
+
+class PanAsianStoreDataGenerator:
+    """Generate realistic Pan-Asian supermarket store data in multiple formats."""
+
+    def __init__(self, output_dir="tests/fixtures/excel_samples"):
+        self.output_dir = output_dir
+        os.makedirs(output_dir, exist_ok=True)
+        self.regions = {
+            "China": {"currency": "¥", "language": "zh_CN", "cities": ["Shanghai", "Beijing", "Guangzhou", "Shenzhen"]},
+            "Hong Kong": {"currency": "HKD", "language": "zh_CN", "cities": ["Central", "Kwun Tong", "Admiralty", "Tung Chung", "Mui Wo", "Tseung Kwan O", "Tsim Sha Tsui"]},
+            "Japan": {"currency": "¥", "language": "ja_JP", "cities": ["Tokyo", "Osaka", "Kyoto", "Fukuoka", "Sapporo"]},
+            "Korea": {"currency": "₩", "language": "ko_KR", "cities": ["Seoul", "Busan", "Incheon", "Daegu", "Gwangju"]},
+            "Thailand": {"currency": "฿", "language": "th_TH", "cities": ["Bangkok", "Chiang Mai", "Phuket", "Pattaya", "Hua Hin"]},
+            "Vietnam": {"currency": "₫", "language": "vi_VN", "cities": ["Hanoi", "Ho Chi Minh City", "Da Nang", "Hai Phong", "Nha Trang"]},
+            "Malaysia": {"currency": "RM", "language": "ms_MY", "cities": ["Kuala Lumpur", "Penang", "Johor Bahru", "Ipoh", "Malacca"]},
+            "Indonesia": {"currency": "Rp", "language": "id_ID", "cities": ["Jakarta", "Surabaya", "Bandung", "Medan", "Bali"]},
+        }
+        self.product_categories = {
+            "zh_CN": ["米饭", "面条", "饮料", "水果", "蔬菜", "肉类", "海鲜", "零食"],
+            "ja_JP": ["ご飯", "麺", "飲料", "果物", "野菜", "肉", "海鮮", "スナック"],
+            "ko_KR": ["밥", "면", "음료", "과일", "채소", "고기", "해산물", "스낵"],
+            "th_TH": ["ข้าว", "ก๋วยเตี๋ยว", "เครื่องดื่ม", "ผลไม้", "ผัก", "เนื้อ", "ทะเล", "ขนม"],
+            "vi_VN": ["gạo", "mì", "đồ uống", "trái cây", "rau", "thịt", "hải sản", "đồ ăn vặt"],
+            "ms_MY": ["nasi", "mi", "minuman", "buah", "sayur", "daging", "laut", "snek"],
+            "id_ID": ["nasi", "mi", "minuman", "buah", "sayur", "daging", "laut", "camilan"],
+        }
+
+    def _localized_faker(self, locale):
+        """Return a Faker instance for a specific locale."""
+        return Faker(locale)
+
+    def _generate_localized_address(self, locale):
+        """Generate a localized address."""
+        faker = self._localized_faker(locale)
+        return faker.address().replace("\n", ", ")
+
+    def _generate_localized_product(self, locale):
+        """Generate a localized product name."""
+        category = random.choice(self.product_categories.get(locale, ["Generic"]))
+        faker = self._localized_faker(locale)
+        return f"{category} {faker.word()}"
+
+    def _generate_localized_store_name(self, locale):
+        """Generate a localized store name."""
+        faker = self._localized_faker(locale)
+        prefixes = {
+            "zh_CN": ["超市", "商店", "便利店", "市场"],
+            "ja_JP": ["スーパー", "店", "コンビニ", "市場"],
+            "ko_KR": ["슈퍼", "상점", "편의점", "시장"],
+            "th_TH": ["ซูเปอร์มาร์เก็ต", "ร้าน", "ร้านสะดวก", "ตลาด"],
+            "vi_VN": ["siêu thị", "cửa hàng", "cửa hàng tiện lợi", "chợ"],
+            "ms_MY": ["pasar raya", "kedai", "kedai runcit", "pasar"],
+            "id_ID": ["supermarket", "toko", "warung", "pasar"],
+        }
+        return f"{random.choice(prefixes.get(locale, ['Store']))} {faker.company()}"
+
+    def create_pan_asian_store_format(self, store_id, region, num_rows=100):
+        """Generate Pan-Asian store data for a specific region."""
+        locale = self.regions[region]["language"]
+        currency = self.regions[region]["currency"]
+        city = random.choice(self.regions[region]["cities"])
+
+        dates = [fake.date_between(start_date='-1y', end_date='today') for _ in range(num_rows)]
+        data = {
+            "Date": dates,
+            "Product Code": [fake.ean13() for _ in range(num_rows)],
+            "Product Name": [self._generate_localized_product(locale) for _ in range(num_rows)],
+            "Category": [random.choice(self.product_categories.get(locale, ["Generic"])) for _ in range(num_rows)],
+            "Quantity": [random.randint(1, 20) for _ in range(num_rows)],
+            "Unit Price": [round(random.uniform(1, 500), 2) for _ in range(num_rows)],
+            "Total Sales": [round(random.uniform(10, 5000), 2) for _ in range(num_rows)],
+            "Store Name": [self._generate_localized_store_name(locale) for _ in range(num_rows)],
+            "Store Address": [self._generate_localized_address(locale) for _ in range(num_rows)],
+            "City": [city for _ in range(num_rows)],
+            "Currency": [currency for _ in range(num_rows)],
+        }
+        df = pd.DataFrame(data)
+
+        # Save as Excel, CSV, and JSON
+        base_filename = f"store_{store_id}_{region.replace(' ', '_')}"
+        excel_path = f"{self.output_dir}/{base_filename}.xlsx"
+        csv_path = f"{self.output_dir}/{base_filename}.csv"
+        json_path = f"{self.output_dir}/{base_filename}.json"
+
+        # Excel with multiple sheets
+        with pd.ExcelWriter(excel_path) as writer:
+            df.to_excel(writer, sheet_name="Sales", index=False)
+            df.groupby("Category")["Total Sales"].sum().to_excel(writer, sheet_name="Category_Summary")
+            df.groupby("Store Name")["Total Sales"].sum().to_excel(writer, sheet_name="Store_Summary")
+
+        # CSV
+        df.to_csv(csv_path, index=False)
+
+        # JSON
+        df.to_json(json_path, orient="records", indent=2)
+
+        return [excel_path, csv_path, json_path]
+
+    def generate_all_test_files(self, num_stores_per_region=3):
+        """Generate test files for all Pan-Asian regions."""
+        files = []
+        for region in self.regions:
+            for i in range(1, num_stores_per_region + 1):
+                store_id = f"{region[:3]}_{i}"
+                files.extend(self.create_pan_asian_store_format(store_id, region, random.randint(50, 200)))
+
+        print(f"✅ Generated {len(files)} test files in {self.output_dir}")
+        return files
+
+if __name__ == "__main__":
+    generator = PanAsianStoreDataGenerator()
+    generator.generate_all_test_files()
