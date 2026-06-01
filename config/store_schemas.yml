@@ -1,0 +1,139 @@
+# Store Schema Configuration
+# Maps heterogeneous Excel formats to standardized extraction
+
+stores:
+  store_123:
+    country: "US"
+    region: "Northeast"
+    lat: 40.7128
+    lon: -74.0060
+    file_pattern: "store_123_sales_*.xlsx"
+    file_metadata:
+      timezone: "America/New_York"
+      currency: "USD"
+      language: "en"
+    
+    sheets:
+      sales_transactions:
+        sheet_name: "Sales_2024"
+        skip_rows: 2  # Skip title rows
+        header_row: 0
+        columns:
+          date:
+            source_name: "Transaction Date"
+            data_type: date
+            date_format: "%Y-%m-%d"
+            required: true
+            validation_rules:
+              not_null: true
+          
+          product_id:
+            source_name: "SKU"
+            data_type: string
+            required: true
+            validation_rules:
+              not_null: true
+          
+          qty:
+            source_name: "Qty Sold"
+            data_type: integer
+            required: true
+            validation_rules:
+              min: 1
+              max: 1000000
+          
+          revenue:
+            source_name: "Net Sales"
+            data_type: float
+            required: true
+            validation_rules:
+              min: 0
+          
+          customer_id:
+            source_name: "Customer ID"
+            data_type: string
+            required: false
+            default_value: "UNKNOWN"
+          
+          payment_method:
+            source_name: "Payment Type"
+            data_type: category
+            required: false
+            validation_rules:
+              allowed_values:
+                - "CASH"
+                - "CREDIT"
+                - "DEBIT"
+                - "MOBILE"
+      
+      inventory:
+        sheet_name: "Inventory_Levels"
+        skip_rows: 0
+        header_row: 0
+        columns:
+          product_id:
+            source_name: "SKU"
+            data_type: string
+            required: true
+          
+          stock_level:
+            source_name: "Current Stock"
+            data_type: integer
+            required: true
+            validation_rules:
+              min: 0
+          
+          reorder_point:
+            source_name: "Min Stock Level"
+            data_type: integer
+            required: true
+            validation_rules:
+              min: 0
+  
+  store_456:
+    country: "UK"
+    region: "London"
+    lat: 51.5074
+    lon: -0.1278
+    file_pattern: "store_456_revenue_*.xls"
+    file_metadata:
+      timezone: "Europe/London"
+      currency: "GBP"
+      language: "en-GB"
+    
+    sheets:
+      sales_transactions:
+        sheet_name: "regex:^Daily_Sales_\d{4}"
+        skip_rows: 0
+        header_row: 0
+        columns:
+          date:
+            source_name: "Sale_Date"
+            data_type: date
+            date_format: "%d/%m/%Y"
+            required: true
+          
+          product_id:
+            source_name: "Product_Code"
+            data_type: string
+            required: true
+          
+          qty:
+            source_name: "Units_Sold"
+            data_type: integer
+            required: true
+            validation_rules:
+              min: 0
+          
+          revenue:
+            source_name: "Gross_Revenue"
+            data_type: float
+            required: true
+            validation_rules:
+              min: 0
+          
+          vat_amount:
+            source_name: "VAT"
+            data_type: float
+            required: false
+            default_value: 0.0
