@@ -29,9 +29,9 @@ FAKER_LOCALES = {
     'ko_KR': Faker('ko_KR'),  # Korean
     'th_TH': Faker('th_TH'),  # Thai
     'vi_VN': Faker('vi_VN'),  # Vietnamese
-    'ms_MY': Faker('ms_MY'),  # Malay
-    'id_ID': Faker('id_ID'),  # Indonesian
-    'en_HK': Faker('en_HK'),  # Hong Kong English
+    'en_MS': Faker('en_MS'),  # Malay
+    'id_ID': Faker('id_ID')  # Indonesian
+    #'en_HK': Faker('en_HK'),  # Hong Kong English - Deprecated in new faker versions
 }
 
 # Default English faker for fallback

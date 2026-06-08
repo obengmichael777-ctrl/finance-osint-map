@@ -1,0 +1,24 @@
+{
+  "source_file": "/mnt/c/Users/obeng/Desktop/Projects/Entrust Evergreen Partners Research/Store Data Map Project/finance-osint-map/tests/fixtures/store_HK_002/store_HK_002_sales_20260608.xlsx",
+  "store_id": "store_HK_002",
+  "sheet_type": "sales_transactions",
+  "extraction_timestamp": "2026-06-08T12:45:25.670701",
+  "row_count": 825,
+  "column_count": 13,
+  "columns": [
+    "customer_id",
+    "date",
+    "payment_method",
+    "product_id",
+    "qty",
+    "revenue",
+    "store_id",
+    "country",
+    "region",
+    "latitude",
+    "longitude",
+    "extraction_timestamp",
+    "source_file"
+  ],
+  "file_size_bytes": 27539
+}

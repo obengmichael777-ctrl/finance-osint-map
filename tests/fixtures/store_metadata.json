@@ -1,0 +1,178 @@
+[
+  {
+    "store_id": "store_JP_001",
+    "country": "JP",
+    "country_name": "Japan",
+    "region": "East Asia Developed",
+    "currency": "JPY",
+    "lat": 34.656132,
+    "lon": 135.473267,
+    "city": "Osaka",
+    "file_pattern": "store_JP_001_sales_*.xlsx"
+  },
+  {
+    "store_id": "store_JP_002",
+    "country": "JP",
+    "country_name": "Japan",
+    "region": "East Asia Developed",
+    "currency": "JPY",
+    "lat": 35.484098,
+    "lon": 139.606112,
+    "city": "Yokohama",
+    "file_pattern": "store_JP_002_sales_*.xlsx"
+  },
+  {
+    "store_id": "store_CN_001",
+    "country": "CN",
+    "country_name": "China",
+    "region": "Greater China",
+    "currency": "CNY",
+    "lat": 39.925671,
+    "lon": 116.365305,
+    "city": "Beijing",
+    "file_pattern": "store_CN_001_sales_*.xlsx"
+  },
+  {
+    "store_id": "store_CN_002",
+    "country": "CN",
+    "country_name": "China",
+    "region": "Greater China",
+    "currency": "CNY",
+    "lat": 30.245967,
+    "lon": 120.198712,
+    "city": "Hangzhou",
+    "file_pattern": "store_CN_002_sales_*.xlsx"
+  },
+  {
+    "store_id": "store_KR_001",
+    "country": "KR",
+    "country_name": "South Korea",
+    "region": "East Asia Developed",
+    "currency": "KRW",
+    "lat": 37.498631,
+    "lon": 126.745917,
+    "city": "Incheon",
+    "file_pattern": "store_KR_001_sales_*.xlsx"
+  },
+  {
+    "store_id": "store_KR_002",
+    "country": "KR",
+    "country_name": "South Korea",
+    "region": "East Asia Developed",
+    "currency": "KRW",
+    "lat": 35.172331,
+    "lon": 129.071674,
+    "city": "Busan",
+    "file_pattern": "store_KR_002_sales_*.xlsx"
+  },
+  {
+    "store_id": "store_HK_001",
+    "country": "HK",
+    "country_name": "Hong Kong",
+    "region": "Greater China",
+    "currency": "HKD",
+    "lat": 22.261596,
+    "lon": 114.148047,
+    "city": "Central",
+    "file_pattern": "store_HK_001_sales_*.xlsx"
+  },
+  {
+    "store_id": "store_HK_002",
+    "country": "HK",
+    "country_name": "Hong Kong",
+    "region": "Greater China",
+    "currency": "HKD",
+    "lat": 22.265146,
+    "lon": 114.133854,
+    "city": "Tsim Sha Tsui",
+    "file_pattern": "store_HK_002_sales_*.xlsx"
+  },
+  {
+    "store_id": "store_TH_001",
+    "country": "TH",
+    "country_name": "Thailand",
+    "region": "ASEAN Core",
+    "currency": "THB",
+    "lat": 7.8905,
+    "lon": 98.407283,
+    "city": "Phuket",
+    "file_pattern": "store_TH_001_sales_*.xlsx"
+  },
+  {
+    "store_id": "store_TH_002",
+    "country": "TH",
+    "country_name": "Thailand",
+    "region": "ASEAN Core",
+    "currency": "THB",
+    "lat": 13.716331,
+    "lon": 100.478337,
+    "city": "Bangkok",
+    "file_pattern": "store_TH_002_sales_*.xlsx"
+  },
+  {
+    "store_id": "store_VN_001",
+    "country": "VN",
+    "country_name": "Vietnam",
+    "region": "ASEAN Frontier",
+    "currency": "VND",
+    "lat": 10.786219,
+    "lon": 106.664158,
+    "city": "Ho Chi Minh City",
+    "file_pattern": "store_VN_001_sales_*.xlsx"
+  },
+  {
+    "store_id": "store_VN_002",
+    "country": "VN",
+    "country_name": "Vietnam",
+    "region": "ASEAN Frontier",
+    "currency": "VND",
+    "lat": 10.854174,
+    "lon": 106.63091,
+    "city": "Ho Chi Minh City",
+    "file_pattern": "store_VN_002_sales_*.xlsx"
+  },
+  {
+    "store_id": "store_MY_001",
+    "country": "MY",
+    "country_name": "Malaysia",
+    "region": "ASEAN Core",
+    "currency": "MYR",
+    "lat": 1.507917,
+    "lon": 103.784867,
+    "city": "Johor Bahru",
+    "file_pattern": "store_MY_001_sales_*.xlsx"
+  },
+  {
+    "store_id": "store_MY_002",
+    "country": "MY",
+    "country_name": "Malaysia",
+    "region": "ASEAN Core",
+    "currency": "MYR",
+    "lat": 1.490988,
+    "lon": 103.761044,
+    "city": "Johor Bahru",
+    "file_pattern": "store_MY_002_sales_*.xlsx"
+  },
+  {
+    "store_id": "store_ID_001",
+    "country": "ID",
+    "country_name": "Indonesia",
+    "region": "ASEAN Core",
+    "currency": "IDR",
+    "lat": -7.246569,
+    "lon": 112.719943,
+    "city": "Surabaya",
+    "file_pattern": "store_ID_001_sales_*.xlsx"
+  },
+  {
+    "store_id": "store_ID_002",
+    "country": "ID",
+    "country_name": "Indonesia",
+    "region": "ASEAN Core",
+    "currency": "IDR",
+    "lat": -7.235262,
+    "lon": 112.728453,
+    "city": "Surabaya",
+    "file_pattern": "store_ID_002_sales_*.xlsx"
+  }
+]

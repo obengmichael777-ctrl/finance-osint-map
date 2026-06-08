@@ -1,0 +1,865 @@
+stores:
+  store_CN_001:
+    country: CN
+    file_metadata:
+      currency: CNY
+      timezone: Asia/Shanghai
+    file_pattern: store_CN_001_sales_*.xlsx
+    lat: 39.925671
+    lon: 116.365305
+    region: Greater China
+    sheets:
+      sales_transactions:
+        columns:
+          customer_id:
+            data_type: string
+            default_value: UNKNOWN
+            required: false
+            source_name: Customer ID
+          date:
+            data_type: date
+            required: true
+            source_name: Transaction Date
+            validation_rules:
+              not_null: true
+          payment_method:
+            data_type: category
+            required: false
+            source_name: Payment Type
+            validation_rules:
+              allowed_values:
+              - CASH
+              - CREDIT
+              - DEBIT
+              - MOBILE
+              - E-WALLET
+          product_id:
+            data_type: string
+            required: true
+            source_name: SKU
+          qty:
+            data_type: integer
+            required: true
+            source_name: Qty Sold
+            validation_rules:
+              max: 100000
+              min: -100
+          revenue:
+            data_type: float
+            required: true
+            source_name: Net Sales
+            validation_rules:
+              min: -50000
+        header_row: 0
+        sheet_name: regex:^(Sales_|Daily_Sales_|销售_|売上_)
+        skip_rows: 0
+  store_CN_002:
+    country: CN
+    file_metadata:
+      currency: CNY
+      timezone: Asia/Shanghai
+    file_pattern: store_CN_002_sales_*.xlsx
+    lat: 30.245967
+    lon: 120.198712
+    region: Greater China
+    sheets:
+      sales_transactions:
+        columns:
+          customer_id:
+            data_type: string
+            default_value: UNKNOWN
+            required: false
+            source_name: Customer ID
+          date:
+            data_type: date
+            required: true
+            source_name: Transaction Date
+            validation_rules:
+              not_null: true
+          payment_method:
+            data_type: category
+            required: false
+            source_name: Payment Type
+            validation_rules:
+              allowed_values:
+              - CASH
+              - CREDIT
+              - DEBIT
+              - MOBILE
+              - E-WALLET
+          product_id:
+            data_type: string
+            required: true
+            source_name: SKU
+          qty:
+            data_type: integer
+            required: true
+            source_name: Qty Sold
+            validation_rules:
+              max: 100000
+              min: -100
+          revenue:
+            data_type: float
+            required: true
+            source_name: Net Sales
+            validation_rules:
+              min: -50000
+        header_row: 0
+        sheet_name: regex:^(Sales_|Daily_Sales_|销售_|売上_)
+        skip_rows: 0
+  store_HK_001:
+    country: HK
+    file_metadata:
+      currency: HKD
+      timezone: Asia/Shanghai
+    file_pattern: store_HK_001_sales_*.xlsx
+    lat: 22.261596
+    lon: 114.148047
+    region: Greater China
+    sheets:
+      sales_transactions:
+        columns:
+          customer_id:
+            data_type: string
+            default_value: UNKNOWN
+            required: false
+            source_name: Customer ID
+          date:
+            data_type: date
+            required: true
+            source_name: Transaction Date
+            validation_rules:
+              not_null: true
+          payment_method:
+            data_type: category
+            required: false
+            source_name: Payment Type
+            validation_rules:
+              allowed_values:
+              - CASH
+              - CREDIT
+              - DEBIT
+              - MOBILE
+              - E-WALLET
+          product_id:
+            data_type: string
+            required: true
+            source_name: SKU
+          qty:
+            data_type: integer
+            required: true
+            source_name: Qty Sold
+            validation_rules:
+              max: 100000
+              min: -100
+          revenue:
+            data_type: float
+            required: true
+            source_name: Net Sales
+            validation_rules:
+              min: -50000
+        header_row: 0
+        sheet_name: regex:^(Sales_|Daily_Sales_|销售_|売上_)
+        skip_rows: 0
+  store_HK_002:
+    country: HK
+    file_metadata:
+      currency: HKD
+      timezone: Asia/Shanghai
+    file_pattern: store_HK_002_sales_*.xlsx
+    lat: 22.265146
+    lon: 114.133854
+    region: Greater China
+    sheets:
+      sales_transactions:
+        columns:
+          customer_id:
+            data_type: string
+            default_value: UNKNOWN
+            required: false
+            source_name: Customer ID
+          date:
+            data_type: date
+            required: true
+            source_name: Transaction Date
+            validation_rules:
+              not_null: true
+          payment_method:
+            data_type: category
+            required: false
+            source_name: Payment Type
+            validation_rules:
+              allowed_values:
+              - CASH
+              - CREDIT
+              - DEBIT
+              - MOBILE
+              - E-WALLET
+          product_id:
+            data_type: string
+            required: true
+            source_name: SKU
+          qty:
+            data_type: integer
+            required: true
+            source_name: Qty Sold
+            validation_rules:
+              max: 100000
+              min: -100
+          revenue:
+            data_type: float
+            required: true
+            source_name: Net Sales
+            validation_rules:
+              min: -50000
+        header_row: 0
+        sheet_name: regex:^(Sales_|Daily_Sales_|销售_|売上_)
+        skip_rows: 0
+  store_ID_001:
+    country: ID
+    file_metadata:
+      currency: IDR
+      timezone: Asia/Shanghai
+    file_pattern: store_ID_001_sales_*.xlsx
+    lat: -7.246569
+    lon: 112.719943
+    region: ASEAN Core
+    sheets:
+      sales_transactions:
+        columns:
+          customer_id:
+            data_type: string
+            default_value: UNKNOWN
+            required: false
+            source_name: Customer ID
+          date:
+            data_type: date
+            required: true
+            source_name: Transaction Date
+            validation_rules:
+              not_null: true
+          payment_method:
+            data_type: category
+            required: false
+            source_name: Payment Type
+            validation_rules:
+              allowed_values:
+              - CASH
+              - CREDIT
+              - DEBIT
+              - MOBILE
+              - E-WALLET
+          product_id:
+            data_type: string
+            required: true
+            source_name: SKU
+          qty:
+            data_type: integer
+            required: true
+            source_name: Qty Sold
+            validation_rules:
+              max: 100000
+              min: -100
+          revenue:
+            data_type: float
+            required: true
+            source_name: Net Sales
+            validation_rules:
+              min: -50000
+        header_row: 0
+        sheet_name: regex:^(Sales_|Daily_Sales_|销售_|売上_)
+        skip_rows: 0
+  store_ID_002:
+    country: ID
+    file_metadata:
+      currency: IDR
+      timezone: Asia/Shanghai
+    file_pattern: store_ID_002_sales_*.xlsx
+    lat: -7.235262
+    lon: 112.728453
+    region: ASEAN Core
+    sheets:
+      sales_transactions:
+        columns:
+          customer_id:
+            data_type: string
+            default_value: UNKNOWN
+            required: false
+            source_name: Customer ID
+          date:
+            data_type: date
+            required: true
+            source_name: Transaction Date
+            validation_rules:
+              not_null: true
+          payment_method:
+            data_type: category
+            required: false
+            source_name: Payment Type
+            validation_rules:
+              allowed_values:
+              - CASH
+              - CREDIT
+              - DEBIT
+              - MOBILE
+              - E-WALLET
+          product_id:
+            data_type: string
+            required: true
+            source_name: SKU
+          qty:
+            data_type: integer
+            required: true
+            source_name: Qty Sold
+            validation_rules:
+              max: 100000
+              min: -100
+          revenue:
+            data_type: float
+            required: true
+            source_name: Net Sales
+            validation_rules:
+              min: -50000
+        header_row: 0
+        sheet_name: regex:^(Sales_|Daily_Sales_|销售_|売上_)
+        skip_rows: 0
+  store_JP_001:
+    country: JP
+    file_metadata:
+      currency: JPY
+      timezone: Asia/Tokyo
+    file_pattern: store_JP_001_sales_*.xlsx
+    lat: 34.656132
+    lon: 135.473267
+    region: East Asia Developed
+    sheets:
+      sales_transactions:
+        columns:
+          customer_id:
+            data_type: string
+            default_value: UNKNOWN
+            required: false
+            source_name: Customer ID
+          date:
+            data_type: date
+            required: true
+            source_name: Transaction Date
+            validation_rules:
+              not_null: true
+          payment_method:
+            data_type: category
+            required: false
+            source_name: Payment Type
+            validation_rules:
+              allowed_values:
+              - CASH
+              - CREDIT
+              - DEBIT
+              - MOBILE
+              - E-WALLET
+          product_id:
+            data_type: string
+            required: true
+            source_name: SKU
+          qty:
+            data_type: integer
+            required: true
+            source_name: Qty Sold
+            validation_rules:
+              max: 100000
+              min: -100
+          revenue:
+            data_type: float
+            required: true
+            source_name: Net Sales
+            validation_rules:
+              min: -50000
+        header_row: 0
+        sheet_name: regex:^(Sales_|Daily_Sales_|销售_|売上_)
+        skip_rows: 0
+  store_JP_002:
+    country: JP
+    file_metadata:
+      currency: JPY
+      timezone: Asia/Tokyo
+    file_pattern: store_JP_002_sales_*.xlsx
+    lat: 35.484098
+    lon: 139.606112
+    region: East Asia Developed
+    sheets:
+      sales_transactions:
+        columns:
+          customer_id:
+            data_type: string
+            default_value: UNKNOWN
+            required: false
+            source_name: Customer ID
+          date:
+            data_type: date
+            required: true
+            source_name: Transaction Date
+            validation_rules:
+              not_null: true
+          payment_method:
+            data_type: category
+            required: false
+            source_name: Payment Type
+            validation_rules:
+              allowed_values:
+              - CASH
+              - CREDIT
+              - DEBIT
+              - MOBILE
+              - E-WALLET
+          product_id:
+            data_type: string
+            required: true
+            source_name: SKU
+          qty:
+            data_type: integer
+            required: true
+            source_name: Qty Sold
+            validation_rules:
+              max: 100000
+              min: -100
+          revenue:
+            data_type: float
+            required: true
+            source_name: Net Sales
+            validation_rules:
+              min: -50000
+        header_row: 0
+        sheet_name: regex:^(Sales_|Daily_Sales_|销售_|売上_)
+        skip_rows: 0
+  store_KR_001:
+    country: KR
+    file_metadata:
+      currency: KRW
+      timezone: Asia/Shanghai
+    file_pattern: store_KR_001_sales_*.xlsx
+    lat: 37.498631
+    lon: 126.745917
+    region: East Asia Developed
+    sheets:
+      sales_transactions:
+        columns:
+          customer_id:
+            data_type: string
+            default_value: UNKNOWN
+            required: false
+            source_name: Customer ID
+          date:
+            data_type: date
+            required: true
+            source_name: Transaction Date
+            validation_rules:
+              not_null: true
+          payment_method:
+            data_type: category
+            required: false
+            source_name: Payment Type
+            validation_rules:
+              allowed_values:
+              - CASH
+              - CREDIT
+              - DEBIT
+              - MOBILE
+              - E-WALLET
+          product_id:
+            data_type: string
+            required: true
+            source_name: SKU
+          qty:
+            data_type: integer
+            required: true
+            source_name: Qty Sold
+            validation_rules:
+              max: 100000
+              min: -100
+          revenue:
+            data_type: float
+            required: true
+            source_name: Net Sales
+            validation_rules:
+              min: -50000
+        header_row: 0
+        sheet_name: regex:^(Sales_|Daily_Sales_|销售_|売上_)
+        skip_rows: 0
+  store_KR_002:
+    country: KR
+    file_metadata:
+      currency: KRW
+      timezone: Asia/Shanghai
+    file_pattern: store_KR_002_sales_*.xlsx
+    lat: 35.172331
+    lon: 129.071674
+    region: East Asia Developed
+    sheets:
+      sales_transactions:
+        columns:
+          customer_id:
+            data_type: string
+            default_value: UNKNOWN
+            required: false
+            source_name: Customer ID
+          date:
+            data_type: date
+            required: true
+            source_name: Transaction Date
+            validation_rules:
+              not_null: true
+          payment_method:
+            data_type: category
+            required: false
+            source_name: Payment Type
+            validation_rules:
+              allowed_values:
+              - CASH
+              - CREDIT
+              - DEBIT
+              - MOBILE
+              - E-WALLET
+          product_id:
+            data_type: string
+            required: true
+            source_name: SKU
+          qty:
+            data_type: integer
+            required: true
+            source_name: Qty Sold
+            validation_rules:
+              max: 100000
+              min: -100
+          revenue:
+            data_type: float
+            required: true
+            source_name: Net Sales
+            validation_rules:
+              min: -50000
+        header_row: 0
+        sheet_name: regex:^(Sales_|Daily_Sales_|销售_|売上_)
+        skip_rows: 0
+  store_MY_001:
+    country: MY
+    file_metadata:
+      currency: MYR
+      timezone: Asia/Shanghai
+    file_pattern: store_MY_001_sales_*.xlsx
+    lat: 1.507917
+    lon: 103.784867
+    region: ASEAN Core
+    sheets:
+      sales_transactions:
+        columns:
+          customer_id:
+            data_type: string
+            default_value: UNKNOWN
+            required: false
+            source_name: Customer ID
+          date:
+            data_type: date
+            required: true
+            source_name: Transaction Date
+            validation_rules:
+              not_null: true
+          payment_method:
+            data_type: category
+            required: false
+            source_name: Payment Type
+            validation_rules:
+              allowed_values:
+              - CASH
+              - CREDIT
+              - DEBIT
+              - MOBILE
+              - E-WALLET
+          product_id:
+            data_type: string
+            required: true
+            source_name: SKU
+          qty:
+            data_type: integer
+            required: true
+            source_name: Qty Sold
+            validation_rules:
+              max: 100000
+              min: -100
+          revenue:
+            data_type: float
+            required: true
+            source_name: Net Sales
+            validation_rules:
+              min: -50000
+        header_row: 0
+        sheet_name: regex:^(Sales_|Daily_Sales_|销售_|売上_)
+        skip_rows: 0
+  store_MY_002:
+    country: MY
+    file_metadata:
+      currency: MYR
+      timezone: Asia/Shanghai
+    file_pattern: store_MY_002_sales_*.xlsx
+    lat: 1.490988
+    lon: 103.761044
+    region: ASEAN Core
+    sheets:
+      sales_transactions:
+        columns:
+          customer_id:
+            data_type: string
+            default_value: UNKNOWN
+            required: false
+            source_name: Customer ID
+          date:
+            data_type: date
+            required: true
+            source_name: Transaction Date
+            validation_rules:
+              not_null: true
+          payment_method:
+            data_type: category
+            required: false
+            source_name: Payment Type
+            validation_rules:
+              allowed_values:
+              - CASH
+              - CREDIT
+              - DEBIT
+              - MOBILE
+              - E-WALLET
+          product_id:
+            data_type: string
+            required: true
+            source_name: SKU
+          qty:
+            data_type: integer
+            required: true
+            source_name: Qty Sold
+            validation_rules:
+              max: 100000
+              min: -100
+          revenue:
+            data_type: float
+            required: true
+            source_name: Net Sales
+            validation_rules:
+              min: -50000
+        header_row: 0
+        sheet_name: regex:^(Sales_|Daily_Sales_|销售_|売上_)
+        skip_rows: 0
+  store_TH_001:
+    country: TH
+    file_metadata:
+      currency: THB
+      timezone: Asia/Shanghai
+    file_pattern: store_TH_001_sales_*.xlsx
+    lat: 7.8905
+    lon: 98.407283
+    region: ASEAN Core
+    sheets:
+      sales_transactions:
+        columns:
+          customer_id:
+            data_type: string
+            default_value: UNKNOWN
+            required: false
+            source_name: Customer ID
+          date:
+            data_type: date
+            required: true
+            source_name: Transaction Date
+            validation_rules:
+              not_null: true
+          payment_method:
+            data_type: category
+            required: false
+            source_name: Payment Type
+            validation_rules:
+              allowed_values:
+              - CASH
+              - CREDIT
+              - DEBIT
+              - MOBILE
+              - E-WALLET
+          product_id:
+            data_type: string
+            required: true
+            source_name: SKU
+          qty:
+            data_type: integer
+            required: true
+            source_name: Qty Sold
+            validation_rules:
+              max: 100000
+              min: -100
+          revenue:
+            data_type: float
+            required: true
+            source_name: Net Sales
+            validation_rules:
+              min: -50000
+        header_row: 0
+        sheet_name: regex:^(Sales_|Daily_Sales_|销售_|売上_)
+        skip_rows: 0
+  store_TH_002:
+    country: TH
+    file_metadata:
+      currency: THB
+      timezone: Asia/Shanghai
+    file_pattern: store_TH_002_sales_*.xlsx
+    lat: 13.716331
+    lon: 100.478337
+    region: ASEAN Core
+    sheets:
+      sales_transactions:
+        columns:
+          customer_id:
+            data_type: string
+            default_value: UNKNOWN
+            required: false
+            source_name: Customer ID
+          date:
+            data_type: date
+            required: true
+            source_name: Transaction Date
+            validation_rules:
+              not_null: true
+          payment_method:
+            data_type: category
+            required: false
+            source_name: Payment Type
+            validation_rules:
+              allowed_values:
+              - CASH
+              - CREDIT
+              - DEBIT
+              - MOBILE
+              - E-WALLET
+          product_id:
+            data_type: string
+            required: true
+            source_name: SKU
+          qty:
+            data_type: integer
+            required: true
+            source_name: Qty Sold
+            validation_rules:
+              max: 100000
+              min: -100
+          revenue:
+            data_type: float
+            required: true
+            source_name: Net Sales
+            validation_rules:
+              min: -50000
+        header_row: 0
+        sheet_name: regex:^(Sales_|Daily_Sales_|销售_|売上_)
+        skip_rows: 0
+  store_VN_001:
+    country: VN
+    file_metadata:
+      currency: VND
+      timezone: Asia/Shanghai
+    file_pattern: store_VN_001_sales_*.xlsx
+    lat: 10.786219
+    lon: 106.664158
+    region: ASEAN Frontier
+    sheets:
+      sales_transactions:
+        columns:
+          customer_id:
+            data_type: string
+            default_value: UNKNOWN
+            required: false
+            source_name: Customer ID
+          date:
+            data_type: date
+            required: true
+            source_name: Transaction Date
+            validation_rules:
+              not_null: true
+          payment_method:
+            data_type: category
+            required: false
+            source_name: Payment Type
+            validation_rules:
+              allowed_values:
+              - CASH
+              - CREDIT
+              - DEBIT
+              - MOBILE
+              - E-WALLET
+          product_id:
+            data_type: string
+            required: true
+            source_name: SKU
+          qty:
+            data_type: integer
+            required: true
+            source_name: Qty Sold
+            validation_rules:
+              max: 100000
+              min: -100
+          revenue:
+            data_type: float
+            required: true
+            source_name: Net Sales
+            validation_rules:
+              min: -50000
+        header_row: 0
+        sheet_name: regex:^(Sales_|Daily_Sales_|销售_|売上_)
+        skip_rows: 0
+  store_VN_002:
+    country: VN
+    file_metadata:
+      currency: VND
+      timezone: Asia/Shanghai
+    file_pattern: store_VN_002_sales_*.xlsx
+    lat: 10.854174
+    lon: 106.63091
+    region: ASEAN Frontier
+    sheets:
+      sales_transactions:
+        columns:
+          customer_id:
+            data_type: string
+            default_value: UNKNOWN
+            required: false
+            source_name: Customer ID
+          date:
+            data_type: date
+            required: true
+            source_name: Transaction Date
+            validation_rules:
+              not_null: true
+          payment_method:
+            data_type: category
+            required: false
+            source_name: Payment Type
+            validation_rules:
+              allowed_values:
+              - CASH
+              - CREDIT
+              - DEBIT
+              - MOBILE
+              - E-WALLET
+          product_id:
+            data_type: string
+            required: true
+            source_name: SKU
+          qty:
+            data_type: integer
+            required: true
+            source_name: Qty Sold
+            validation_rules:
+              max: 100000
+              min: -100
+          revenue:
+            data_type: float
+            required: true
+            source_name: Net Sales
+            validation_rules:
+              min: -50000
+        header_row: 0
+        sheet_name: regex:^(Sales_|Daily_Sales_|销售_|売上_)
+        skip_rows: 0
