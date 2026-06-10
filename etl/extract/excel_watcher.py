@@ -24,12 +24,17 @@ from sqlalchemy import create_engine, Table, Column, String, DateTime, JSON, Met
 from sqlalchemy.dialects.postgresql import UUID
 import uuid
 
+
 from etl.extract.schema_registry import SchemaRegistry, StoreSchema
 
-# Configure structured logging
+# --- Configure logging to write to logs.txt (overwrite each run) ---
 logging.basicConfig(
     level=logging.INFO,
-    format='%(asctime)s - %(name)s - %(levelname)s - %(message)s'
+    format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
+    handlers=[
+        logging.StreamHandler(),  # Log to console
+        logging.FileHandler('logs.txt', mode='w')  # Log to logs.txt (overwrite)
+    ]
 )
 logger = logging.getLogger(__name__)
 

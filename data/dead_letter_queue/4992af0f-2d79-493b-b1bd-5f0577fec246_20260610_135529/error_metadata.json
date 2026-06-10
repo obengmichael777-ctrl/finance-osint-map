@@ -1,0 +1,15 @@
+{
+  "failure_id": "4992af0f-2d79-493b-b1bd-5f0577fec246",
+  "original_path": "/mnt/c/Users/obeng/Desktop/Projects/Entrust Evergreen Partners Research/Store Data Map Project/finance-osint-map/tests/fixtures/store_VN_001/store_VN_001_sales_20260608.xlsx",
+  "store_id": "store_VN_001",
+  "error_type": "TypeError",
+  "error_message": "Object of type datetime is not JSON serializable",
+  "traceback": "<traceback object at 0x76ab34922b40>",
+  "context": {
+    "processing_time": 1.261662,
+    "file_size": 71516
+  },
+  "timestamp": "20260610_135529",
+  "file_size": 71516,
+  "file_modified": "2026-06-08T20:39:28.100346"
+}

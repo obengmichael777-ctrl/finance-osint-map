@@ -1,0 +1,175 @@
+2026-06-10 21:55:09,355 - etl.extract.excel_watcher - INFO - Found 20 Excel files to process in tests/fixtures
+2026-06-10 21:55:10,741 - etl.extract.excel_watcher - ERROR - File sent to DLQ: tests/fixtures/edge_cases/negative_values.xlsx -> data/dead_letter_queue/d68ad786-0ce8-432c-8d25-2c184c448ada_20260610_135510. Error: No matching schema found for file: tests/fixtures/edge_cases/negative_values.xlsx
+2026-06-10 21:55:10,741 - etl.extract.excel_watcher - ERROR - File sent to DLQ: tests/fixtures/edge_cases/empty_file.xlsx -> data/dead_letter_queue/91db0201-d78b-4b66-b3d9-92469899c39e_20260610_135510. Error: No matching schema found for file: tests/fixtures/edge_cases/empty_file.xlsx
+2026-06-10 21:55:10,742 - etl.extract.excel_watcher - ERROR - File sent to DLQ: tests/fixtures/edge_cases/missing_columns.xlsx -> data/dead_letter_queue/946b8772-0c06-4d40-951a-c6ce3769acc0_20260610_135510. Error: No matching schema found for file: tests/fixtures/edge_cases/missing_columns.xlsx
+2026-06-10 21:55:10,745 - etl.extract.excel_watcher - ERROR - File sent to DLQ: tests/fixtures/edge_cases/corrupted.xlsx -> data/dead_letter_queue/f7b5b6d6-7f28-4a28-ad39-4c0d6dd41b3e_20260610_135510. Error: No matching schema found for file: tests/fixtures/edge_cases/corrupted.xlsx
+2026-06-10 21:55:11,852 - etl.extract.excel_watcher - INFO - File tests/fixtures/store_CN_002/store_CN_002_sales_20260608.xlsx already processed (hash: 56903b561848a69352f8cf9651fce301cb910a528c5b53f678f9ce30779dc54a)
+2026-06-10 21:55:11,852 - etl.extract.excel_watcher - INFO - File tests/fixtures/store_HK_002/store_HK_002_sales_20260608.xlsx already processed (hash: 787aed71d36fb8ee630e044e22256383d09f4fcd9793a5afc6fb67658da33a1b)
+2026-06-10 21:55:11,853 - etl.extract.excel_watcher - INFO - Processing tests/fixtures/store_CN_001/store_CN_001_sales_20260608.xlsx with schema for store: store_CN_001
+2026-06-10 21:55:11,857 - etl.extract.excel_watcher - INFO - Processing tests/fixtures/store_HK_001/store_HK_001_sales_20260608.xlsx with schema for store: store_HK_001
+2026-06-10 21:55:12,967 - etl.extract.excel_watcher - INFO - File tests/fixtures/store_ID_001/store_ID_001_sales_20260608.xlsx already processed (hash: 1e4eaec751101eaaf417d0957f70144a5d6813706b76a953a09b05cad3e69537)
+2026-06-10 21:55:12,974 - etl.extract.excel_watcher - INFO - Processing tests/fixtures/store_ID_002/store_ID_002_sales_20260608.xlsx with schema for store: store_ID_002
+2026-06-10 21:55:14,074 - etl.extract.excel_watcher - INFO - Processing tests/fixtures/store_JP_001/store_JP_001_sales_20260608.xlsx with schema for store: store_JP_001
+2026-06-10 21:55:26,457 - etl.extract.excel_watcher - ERROR - File sent to DLQ: tests/fixtures/store_HK_001/store_HK_001_sales_20260608.xlsx -> data/dead_letter_queue/4a96b9d6-262a-414c-a7c8-626d3110ca85_20260610_135526. Error: Object of type datetime is not JSON serializable
+2026-06-10 21:55:26,459 - etl.extract.excel_watcher - ERROR - File sent to DLQ: tests/fixtures/store_JP_001/store_JP_001_sales_20260608.xlsx -> data/dead_letter_queue/22112236-1467-4ee4-8b87-827714187121_20260610_135526. Error: Object of type datetime is not JSON serializable
+2026-06-10 21:55:26,460 - etl.extract.excel_watcher - ERROR - File sent to DLQ: tests/fixtures/store_ID_002/store_ID_002_sales_20260608.xlsx -> data/dead_letter_queue/1b32b312-7101-4e05-a266-41cc1a53ddb9_20260610_135526. Error: Object of type datetime is not JSON serializable
+2026-06-10 21:55:26,461 - etl.extract.excel_watcher - ERROR - File sent to DLQ: tests/fixtures/store_CN_001/store_CN_001_sales_20260608.xlsx -> data/dead_letter_queue/5900d057-6dda-4d82-9989-4bccc050f77a_20260610_135526. Error: Object of type datetime is not JSON serializable
+2026-06-10 21:55:26,477 - etl.extract.excel_watcher - ERROR - Failed to process tests/fixtures/store_HK_001/store_HK_001_sales_20260608.xlsx: Object of type datetime is not JSON serializable
+Traceback (most recent call last):
+  File "/mnt/c/Users/obeng/Desktop/Projects/Entrust Evergreen Partners Research/Store Data Map Project/finance-osint-map/etl/extract/excel_watcher.py", line 319, in process_file
+    results, errors = schema.extract_all_sheets(file_path)
+                      ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^
+  File "/mnt/c/Users/obeng/Desktop/Projects/Entrust Evergreen Partners Research/Store Data Map Project/finance-osint-map/etl/extract/schema_registry.py", line 226, in extract_all_sheets
+    f"Errors: {json.dumps(errors, indent=2)}"
+               ~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.14/json/__init__.py", line 242, in dumps
+    **kw).encode(obj)
+          ~~~~~~^^^^^
+  File "/usr/lib/python3.14/json/encoder.py", line 202, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+  File "/usr/lib/python3.14/json/encoder.py", line 263, in iterencode
+    return _iterencode(o, 0)
+  File "/usr/lib/python3.14/json/encoder.py", line 182, in default
+    raise TypeError(f'Object of type {o.__class__.__name__} '
+                    f'is not JSON serializable')
+TypeError: Object of type datetime is not JSON serializable
+when serializing dict item 'timestamp'
+when serializing list item 0
+2026-06-10 21:55:26,482 - etl.extract.excel_watcher - ERROR - Failed to process tests/fixtures/store_JP_001/store_JP_001_sales_20260608.xlsx: Object of type datetime is not JSON serializable
+Traceback (most recent call last):
+  File "/mnt/c/Users/obeng/Desktop/Projects/Entrust Evergreen Partners Research/Store Data Map Project/finance-osint-map/etl/extract/excel_watcher.py", line 319, in process_file
+    results, errors = schema.extract_all_sheets(file_path)
+                      ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^
+  File "/mnt/c/Users/obeng/Desktop/Projects/Entrust Evergreen Partners Research/Store Data Map Project/finance-osint-map/etl/extract/schema_registry.py", line 226, in extract_all_sheets
+    f"Errors: {json.dumps(errors, indent=2)}"
+               ~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.14/json/__init__.py", line 242, in dumps
+    **kw).encode(obj)
+          ~~~~~~^^^^^
+  File "/usr/lib/python3.14/json/encoder.py", line 202, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+  File "/usr/lib/python3.14/json/encoder.py", line 263, in iterencode
+    return _iterencode(o, 0)
+  File "/usr/lib/python3.14/json/encoder.py", line 182, in default
+    raise TypeError(f'Object of type {o.__class__.__name__} '
+                    f'is not JSON serializable')
+TypeError: Object of type datetime is not JSON serializable
+when serializing dict item 'timestamp'
+when serializing list item 0
+2026-06-10 21:55:26,482 - etl.extract.excel_watcher - ERROR - Failed to process tests/fixtures/store_CN_001/store_CN_001_sales_20260608.xlsx: Object of type datetime is not JSON serializable
+Traceback (most recent call last):
+  File "/mnt/c/Users/obeng/Desktop/Projects/Entrust Evergreen Partners Research/Store Data Map Project/finance-osint-map/etl/extract/excel_watcher.py", line 319, in process_file
+    results, errors = schema.extract_all_sheets(file_path)
+                      ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^
+  File "/mnt/c/Users/obeng/Desktop/Projects/Entrust Evergreen Partners Research/Store Data Map Project/finance-osint-map/etl/extract/schema_registry.py", line 226, in extract_all_sheets
+    f"Errors: {json.dumps(errors, indent=2)}"
+               ~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.14/json/__init__.py", line 242, in dumps
+    **kw).encode(obj)
+          ~~~~~~^^^^^
+  File "/usr/lib/python3.14/json/encoder.py", line 202, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+  File "/usr/lib/python3.14/json/encoder.py", line 263, in iterencode
+    return _iterencode(o, 0)
+  File "/usr/lib/python3.14/json/encoder.py", line 182, in default
+    raise TypeError(f'Object of type {o.__class__.__name__} '
+                    f'is not JSON serializable')
+TypeError: Object of type datetime is not JSON serializable
+when serializing dict item 'timestamp'
+when serializing list item 0
+2026-06-10 21:55:26,487 - etl.extract.excel_watcher - ERROR - Failed to process tests/fixtures/store_ID_002/store_ID_002_sales_20260608.xlsx: Object of type datetime is not JSON serializable
+Traceback (most recent call last):
+  File "/mnt/c/Users/obeng/Desktop/Projects/Entrust Evergreen Partners Research/Store Data Map Project/finance-osint-map/etl/extract/excel_watcher.py", line 319, in process_file
+    results, errors = schema.extract_all_sheets(file_path)
+                      ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^
+  File "/mnt/c/Users/obeng/Desktop/Projects/Entrust Evergreen Partners Research/Store Data Map Project/finance-osint-map/etl/extract/schema_registry.py", line 226, in extract_all_sheets
+    f"Errors: {json.dumps(errors, indent=2)}"
+               ~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.14/json/__init__.py", line 242, in dumps
+    **kw).encode(obj)
+          ~~~~~~^^^^^
+  File "/usr/lib/python3.14/json/encoder.py", line 202, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+  File "/usr/lib/python3.14/json/encoder.py", line 263, in iterencode
+    return _iterencode(o, 0)
+  File "/usr/lib/python3.14/json/encoder.py", line 182, in default
+    raise TypeError(f'Object of type {o.__class__.__name__} '
+                    f'is not JSON serializable')
+TypeError: Object of type datetime is not JSON serializable
+when serializing dict item 'timestamp'
+when serializing list item 0
+2026-06-10 21:55:27,680 - etl.extract.excel_watcher - INFO - File tests/fixtures/store_JP_002/store_JP_002_sales_20260608.xlsx already processed (hash: f4f8d03c0ba28c26306f1ba123f8830b32e6b1b2de7943f46c2aa9bfc601eda2)
+2026-06-10 21:55:27,711 - etl.extract.excel_watcher - INFO - Processing tests/fixtures/store_KR_001/store_KR_001_sales_20260608.xlsx with schema for store: store_KR_001
+2026-06-10 21:55:27,877 - etl.extract.excel_watcher - INFO - File tests/fixtures/store_KR_002/store_KR_002_sales_20260608.xlsx already processed (hash: 901641f204c315d155143550d3a26aa430ca8dd8fc37bf89eed08edfd59b8597)
+2026-06-10 21:55:27,936 - etl.extract.excel_watcher - INFO - File tests/fixtures/store_MY_001/store_MY_001_sales_20260608.xlsx already processed (hash: 207644687dc7a4b170cc476a119a85c2eec20f0ce80a3b869b03d78568ace2c3)
+2026-06-10 21:55:28,080 - etl.extract.excel_watcher - ERROR - File sent to DLQ: tests/fixtures/store_KR_001/store_KR_001_sales_20260608.xlsx -> data/dead_letter_queue/7ec9f611-8229-4778-914d-a456abcc3427_20260610_135527. Error: Object of type datetime is not JSON serializable
+2026-06-10 21:55:28,097 - etl.extract.excel_watcher - ERROR - Failed to process tests/fixtures/store_KR_001/store_KR_001_sales_20260608.xlsx: Object of type datetime is not JSON serializable
+Traceback (most recent call last):
+  File "/mnt/c/Users/obeng/Desktop/Projects/Entrust Evergreen Partners Research/Store Data Map Project/finance-osint-map/etl/extract/excel_watcher.py", line 319, in process_file
+    results, errors = schema.extract_all_sheets(file_path)
+                      ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^
+  File "/mnt/c/Users/obeng/Desktop/Projects/Entrust Evergreen Partners Research/Store Data Map Project/finance-osint-map/etl/extract/schema_registry.py", line 226, in extract_all_sheets
+    f"Errors: {json.dumps(errors, indent=2)}"
+               ~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.14/json/__init__.py", line 242, in dumps
+    **kw).encode(obj)
+          ~~~~~~^^^^^
+  File "/usr/lib/python3.14/json/encoder.py", line 202, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+  File "/usr/lib/python3.14/json/encoder.py", line 263, in iterencode
+    return _iterencode(o, 0)
+  File "/usr/lib/python3.14/json/encoder.py", line 182, in default
+    raise TypeError(f'Object of type {o.__class__.__name__} '
+                    f'is not JSON serializable')
+TypeError: Object of type datetime is not JSON serializable
+when serializing dict item 'timestamp'
+when serializing list item 0
+2026-06-10 21:55:28,759 - etl.extract.excel_watcher - INFO - File tests/fixtures/store_MY_002/store_MY_002_sales_20260608.xlsx already processed (hash: 8c23b5123f6e4d47a6f914d0e9b425355408482643e0c9a5bbd51a05988e0ff2)
+2026-06-10 21:55:28,952 - etl.extract.excel_watcher - INFO - File tests/fixtures/store_TH_001/store_TH_001_sales_20260608.xlsx already processed (hash: 4f1323f46262794fee0d5d97e647f8db5476bfb463816aa0d1d5d33da0e8ff31)
+2026-06-10 21:55:29,012 - etl.extract.excel_watcher - INFO - Processing tests/fixtures/store_TH_002/store_TH_002_sales_20260608.xlsx with schema for store: store_TH_002
+2026-06-10 21:55:29,235 - etl.extract.excel_watcher - INFO - Processing tests/fixtures/store_VN_001/store_VN_001_sales_20260608.xlsx with schema for store: store_VN_001
+2026-06-10 21:55:29,414 - etl.extract.excel_watcher - ERROR - File sent to DLQ: tests/fixtures/store_TH_002/store_TH_002_sales_20260608.xlsx -> data/dead_letter_queue/2d15e46d-0721-4a6a-a5d1-3b5e9a9e2f58_20260610_135529. Error: Object of type datetime is not JSON serializable
+2026-06-10 21:55:29,423 - etl.extract.excel_watcher - ERROR - Failed to process tests/fixtures/store_TH_002/store_TH_002_sales_20260608.xlsx: Object of type datetime is not JSON serializable
+Traceback (most recent call last):
+  File "/mnt/c/Users/obeng/Desktop/Projects/Entrust Evergreen Partners Research/Store Data Map Project/finance-osint-map/etl/extract/excel_watcher.py", line 319, in process_file
+    results, errors = schema.extract_all_sheets(file_path)
+                      ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^
+  File "/mnt/c/Users/obeng/Desktop/Projects/Entrust Evergreen Partners Research/Store Data Map Project/finance-osint-map/etl/extract/schema_registry.py", line 226, in extract_all_sheets
+    f"Errors: {json.dumps(errors, indent=2)}"
+               ~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.14/json/__init__.py", line 242, in dumps
+    **kw).encode(obj)
+          ~~~~~~^^^^^
+  File "/usr/lib/python3.14/json/encoder.py", line 202, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+  File "/usr/lib/python3.14/json/encoder.py", line 263, in iterencode
+    return _iterencode(o, 0)
+  File "/usr/lib/python3.14/json/encoder.py", line 182, in default
+    raise TypeError(f'Object of type {o.__class__.__name__} '
+                    f'is not JSON serializable')
+TypeError: Object of type datetime is not JSON serializable
+when serializing dict item 'timestamp'
+when serializing list item 0
+2026-06-10 21:55:29,506 - etl.extract.excel_watcher - ERROR - File sent to DLQ: tests/fixtures/store_VN_001/store_VN_001_sales_20260608.xlsx -> data/dead_letter_queue/4992af0f-2d79-493b-b1bd-5f0577fec246_20260610_135529. Error: Object of type datetime is not JSON serializable
+2026-06-10 21:55:29,527 - etl.extract.excel_watcher - ERROR - Failed to process tests/fixtures/store_VN_001/store_VN_001_sales_20260608.xlsx: Object of type datetime is not JSON serializable
+Traceback (most recent call last):
+  File "/mnt/c/Users/obeng/Desktop/Projects/Entrust Evergreen Partners Research/Store Data Map Project/finance-osint-map/etl/extract/excel_watcher.py", line 319, in process_file
+    results, errors = schema.extract_all_sheets(file_path)
+                      ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^
+  File "/mnt/c/Users/obeng/Desktop/Projects/Entrust Evergreen Partners Research/Store Data Map Project/finance-osint-map/etl/extract/schema_registry.py", line 226, in extract_all_sheets
+    f"Errors: {json.dumps(errors, indent=2)}"
+               ~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.14/json/__init__.py", line 242, in dumps
+    **kw).encode(obj)
+          ~~~~~~^^^^^
+  File "/usr/lib/python3.14/json/encoder.py", line 202, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+  File "/usr/lib/python3.14/json/encoder.py", line 263, in iterencode
+    return _iterencode(o, 0)
+  File "/usr/lib/python3.14/json/encoder.py", line 182, in default
+    raise TypeError(f'Object of type {o.__class__.__name__} '
+                    f'is not JSON serializable')
+TypeError: Object of type datetime is not JSON serializable
+when serializing dict item 'timestamp'
+when serializing list item 0
+2026-06-10 21:55:29,834 - etl.extract.excel_watcher - INFO - File tests/fixtures/store_VN_002/store_VN_002_sales_20260608.xlsx already processed (hash: d6c849c8aed7b8a47030de277e164f7849ca9d8f4df856fe54174329e7ff6508)

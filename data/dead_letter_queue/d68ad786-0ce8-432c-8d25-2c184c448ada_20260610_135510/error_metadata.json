@@ -1,0 +1,14 @@
+{
+  "failure_id": "d68ad786-0ce8-432c-8d25-2c184c448ada",
+  "original_path": "/mnt/c/Users/obeng/Desktop/Projects/Entrust Evergreen Partners Research/Store Data Map Project/finance-osint-map/tests/fixtures/edge_cases/negative_values.xlsx",
+  "store_id": null,
+  "error_type": "ValueError",
+  "error_message": "No matching schema found for file: tests/fixtures/edge_cases/negative_values.xlsx",
+  "traceback": null,
+  "context": {
+    "reason": "no_matching_schema"
+  },
+  "timestamp": "20260610_135510",
+  "file_size": 5583,
+  "file_modified": "2026-06-08T20:39:30.576819"
+}

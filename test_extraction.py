@@ -6,7 +6,16 @@ from etl.extract.excel_watcher import ExtractionOrchestrator, DeadLetterQueue, E
 from pathlib import Path
 import logging
 
-logging.basicConfig(level=logging.INFO)
+# --- Configure logging to write to logs.txt (overwrite each run) ---
+logging.basicConfig(
+    level=logging.INFO,
+    format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
+    handlers=[
+        logging.StreamHandler(),  # Log to console
+        logging.FileHandler('logs.txt', mode='w')  # Log to logs.txt (overwrite)
+    ]
+)
+logger = logging.getLogger(__name__)
 
 # Initialize schema registry
 schema_registry = SchemaRegistry(Path('config/store_schemas.yaml'))
